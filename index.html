@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marks-Man SA | Firearms Solutions</title>
+<meta name="description" content="Your ultimate firearms partner. Expert motivation assistance, SAPS applications, unbiased reviews and best price sourcing. Knowledge. Precision. Responsibility.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon:#0b0c0d;
+    --panel:#151617;
+    --panel-2:#1c1d1f;
+    --steel:#8a8f96;
+    --steel-light:#c3c7cc;
+    --silver:#e9ebee;
+    --gold:#c99a3e;
+    --gold-bright:#e8bb63;
+    --red:#c4272c;
+    --red-bright:#e13a3f;
+    --line: rgba(201,154,62,0.22);
+    --line-red: rgba(196,39,44,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--carbon);
+    color:var(--silver);
+    font-family:'Barlow', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  h1,h2,h3,h4{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:700;
+    line-height:1.06;
+  }
+  .eyebrow{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600; letter-spacing:0.3em; text-transform:uppercase; font-size:13px;
+    color:var(--gold);
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:2px; background:var(--red); }
+  .wrap{ max-width:1200px; margin:0 auto; padding:0 32px; }
+  section{ position:relative; }
+
+  /* carbon fiber texture */
+  .carbon-bg{
+    background-image:
+      linear-gradient(135deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(315deg, rgba(255,255,255,0.02) 25%, var(--carbon) 25%);
+    background-position:10px 0, 10px 0, 0 0, 0 0;
+    background-size:20px 20px;
+    background-repeat:repeat;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,12,13,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ max-width:1200px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .logo-m{
+    width:42px; height:42px; flex:none;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .brand-text{ font-family:'Oswald',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.03em; line-height:1.1; }
+  .brand-text .sub{ display:block; font-family:'Barlow Condensed',sans-serif; font-size:10.5px; letter-spacing:0.28em; color:var(--red-bright); font-weight:600; margin-top:1px;}
+  nav.links{ display:flex; gap:32px; }
+  nav.links a{ font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; font-size:14.5px; color:var(--steel-light); transition:color .2s;}
+  nav.links a:hover{ color:var(--gold-bright); }
+  .wa-btn{
+    display:inline-flex; align-items:center; gap:9px;
+    background:var(--red); color:#fff;
+    font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; font-size:14px;
+    padding:11px 20px; border-radius:6px;
+    transition:background .2s, transform .2s;
+    white-space:nowrap;
+  }
+  .wa-btn:hover{ background:var(--red-bright); transform:translateY(-1px); }
+  .wa-btn svg{ width:16px; height:16px; flex:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:180px 0 100px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 75% 0%, rgba(196,39,44,0.14), transparent 55%),
+      radial-gradient(ellipse at 10% 100%, rgba(201,154,62,0.12), transparent 50%),
+      var(--carbon);
+  }
+  .hero-inner{ max-width:760px; }
+  .hero h1{
+    margin-top:18px;
+    font-size:clamp(38px,6vw,64px);
+    color:var(--silver);
+  }
+  .hero h1 .r{ color:var(--red-bright); }
+  .hero p.lead{ margin-top:22px; max-width:600px; color:var(--steel-light); font-size:17.5px; }
+  .hero p.lead + p.lead{ margin-top:14px; }
+  .hero-actions{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; font-size:15px;
+    padding:16px 30px; border-radius:6px;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:all .22s;
+  }
+  .btn-primary{ background:var(--red); color:#fff; }
+  .btn-primary:hover{ background:var(--red-bright); transform:translateY(-2px); }
+  .btn-ghost{ border:1px solid rgba(233,235,238,0.28); color:var(--silver); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-bright); }
+
+  .pillars{
+    margin-top:56px; display:flex; gap:0; flex-wrap:wrap;
+    border-top:1px solid var(--line);
+  }
+  .pillars div{ padding:18px 26px 0 0; margin-right:26px; border-right:1px solid var(--line); }
+  .pillars div:last-child{ border-right:none; }
+  .pillars .k{ font-family:'Oswald',sans-serif; color:var(--gold); font-size:15px; letter-spacing:0.03em;}
+  .pillars .k::before{ content:"— "; color:var(--red); }
+
+  /* ---------- DIVIDER ---------- */
+  .divider{
+    height:2px;
+    background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--red) 50%, var(--gold) 80%, transparent);
+    opacity:0.55;
+  }
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-pad{ padding:110px 0; }
+  .sec-head{ max-width:660px; margin:0 auto 56px; text-align:center; }
+  .sec-head h2{ margin-top:14px; font-size:clamp(30px,4vw,44px); color:var(--silver); }
+  .sec-head p{ margin-top:14px; color:var(--steel-light); font-size:16.5px; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px 30px;
+    display:flex; gap:22px;
+    position:relative;
+    transition:border-color .25s, transform .25s;
+  }
+  .service-card:hover{ border-color:var(--gold); transform:translateY(-3px); }
+  .service-card .num{
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:15px;
+    color:var(--carbon); background:var(--gold);
+    width:30px; height:30px; border-radius:6px; flex:none;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-card h3{ font-size:18.5px; color:var(--silver); margin-bottom:8px; }
+  .service-card p{ color:var(--steel-light); font-size:14.5px; margin-bottom:14px; }
+  .price-tag{
+    display:inline-block;
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:16px;
+    padding:6px 16px; border-radius:5px;
+    border:1px solid;
+  }
+  .price-tag.paid{ color:var(--gold-bright); border-color:var(--gold); background:rgba(201,154,62,0.08); }
+  .price-tag.free{ color:#7fd88f; border-color:#3a7a49; background:rgba(63,150,84,0.08); }
+  .service-note{ font-size:12.5px; color:var(--steel); margin-top:6px; }
+
+  /* ---------- SECTIONS 13/15/16 ---------- */
+  .sections-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .section-card{
+    background:linear-gradient(160deg, var(--panel), var(--panel-2));
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px 26px;
+  }
+  .section-card .tag{
+    display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    font-size:12.5px; color:var(--carbon); background:var(--gold);
+    padding:5px 12px; border-radius:4px; margin-bottom:14px;
+  }
+  .section-card h3{ font-size:19px; color:var(--silver); margin-bottom:10px; }
+  .section-card p{ color:var(--steel-light); font-size:14.5px; }
+
+  /* ---------- FEATURED GEAR ---------- */
+  .gear-strip{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .gear-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .gear-card{
+    background:var(--carbon);
+    border:1px solid var(--line-red);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .gear-top{
+    padding:26px 26px 0;
+  }
+  .gear-card .loc{
+    font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; font-size:12px;
+    color:var(--gold-bright); display:flex; align-items:center; gap:6px;
+  }
+  .gear-card h3{ font-size:28px; color:var(--silver); margin-top:10px; }
+  .gear-card .spec{ color:var(--steel-light); font-size:14.5px; margin-top:6px; }
+  .gear-feats{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .gear-feats span{
+    font-size:12px; border:1px solid var(--line); padding:5px 10px; border-radius:100px; color:var(--steel-light);
+  }
+  .gear-bottom{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 26px; margin-top:22px;
+    background:var(--panel-2);
+    border-top:1px solid var(--line-red);
+  }
+  .gear-bottom .price{ font-family:'Oswald',sans-serif; font-weight:700; font-size:24px; color:var(--red-bright); }
+  .gear-bottom .price span{ font-family:'Barlow Condensed',sans-serif; font-size:12px; color:var(--steel); display:block; font-weight:500; letter-spacing:0.06em;}
+
+  /* ---------- BRANDS STRIP ---------- */
+  .brands-strip{ padding:70px 0; text-align:center; }
+  .brands-strip .eyebrow{ justify-content:center; }
+  .brands-strip h2{ margin-top:14px; font-size:clamp(24px,3vw,32px); }
+  .brand-row{
+    margin-top:40px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:12px 14px;
+  }
+  .brand-chip{
+    font-family:'Barlow Condensed', sans-serif; font-weight:600; letter-spacing:0.04em;
+    font-size:14.5px; color:var(--steel-light);
+    border:1px solid var(--line);
+    padding:10px 18px; border-radius:6px;
+    transition:.2s;
+  }
+  .brand-chip:hover{ border-color:var(--gold); color:var(--gold-bright); }
+  .brands-strip .tagline{ margin-top:34px; color:var(--steel); font-family:'Barlow Condensed',sans-serif; letter-spacing:0.12em; text-transform:uppercase; font-size:13.5px;}
+  .brands-strip .tagline b{ color:var(--gold-bright); }
+
+  /* ---------- VALUES / WHY ---------- */
+  .values{
+    background:linear-gradient(120deg, rgba(196,39,44,0.08), rgba(201,154,62,0.05));
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; text-align:center; }
+  .values-grid h3{ font-size:20px; color:var(--gold-bright); margin:16px 0 8px; letter-spacing:0.06em;}
+  .values-grid p{ color:var(--steel-light); font-size:14.5px; }
+  .values-grid .vnum{
+    width:52px; height:52px; border-radius:50%; margin:0 auto;
+    border:2px solid var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Oswald',sans-serif; font-weight:700; color:var(--gold-bright); font-size:20px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ text-align:center; }
+  .contact-card{
+    max-width:640px; margin:0 auto;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:52px 44px;
+  }
+  .contact-card h2{ font-size:clamp(26px,3.4vw,36px); color:var(--silver); }
+  .contact-card p{ margin-top:14px; color:var(--steel-light); }
+  .contact-lines{ margin-top:30px; display:flex; flex-direction:column; gap:14px; align-items:center; }
+  .cline{ display:flex; align-items:center; gap:10px; font-size:15.5px; color:var(--steel-light); }
+  .cline .ico{ width:32px; height:32px; border-radius:50%; background:rgba(233,235,238,0.06); display:flex; align-items:center; justify-content:center; flex:none;}
+  .cline .ico svg{ width:15px; height:15px; color:var(--gold-bright); }
+  .cline a:hover{ color:var(--gold-bright); }
+  .contact-card .btn-primary{ margin-top:30px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:36px 0; border-top:1px solid var(--line); }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .footer-inner p{ font-size:13px; color:var(--steel); }
+  .footer-links{ display:flex; gap:22px; }
+  .footer-links a{ font-size:13px; color:var(--steel); }
+  .footer-links a:hover{ color:var(--gold-bright); }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold-bright); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
+
+  @media (max-width:980px){
+    nav.links{ display:none; }
+    .services-grid{ grid-template-columns:1fr; }
+    .sections-grid{ grid-template-columns:1fr; }
+    .gear-grid{ grid-template-columns:1fr; }
+    .values-grid{ grid-template-columns:1fr; gap:40px; }
+  }
+  @media (max-width:600px){
+    .sec-pad{ padding:76px 0; }
+    .wrap{ padding:0 20px; }
+    .contact-card{ padding:36px 24px; }
+    .pillars div{ margin-right:18px; padding-right:0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <svg class="logo-m" viewBox="0 0 100 100" fill="none">
+        <path d="M15 85 L15 30 L50 55 L85 30 L85 85" stroke="url(#g1)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="50" cy="22" r="6" fill="#c4272c"/>
+        <path d="M35 15 L65 15 M50 5 L50 30 M40 25 L60 25" stroke="#c99a3e" stroke-width="2.5"/>
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="100" y2="100"><stop stop-color="#e9ebee"/><stop offset="1" stop-color="#8a8f96"/></linearGradient></defs>
+      </svg>
+      <span class="brand-text">MARKS-MAN SA<span class="sub">Firearms Solutions</span></span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#sections">Licensing</a>
+      <a href="#gear">Featured Gear</a>
+      <a href="#brands">Brands</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="https://wa.me/27686150132" target="_blank" rel="noopener" class="wa-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+      068 615 0132
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Marks-Man SA · Firearms Solutions</span>
+      <h1>Your Ultimate <span class="r">Firearms</span> Partner</h1>
+      <p class="lead">Whether you are navigating the licensing process or looking for the perfect gear, we've got you covered.</p>
+      <p class="lead">From expert firearm motivation assistance and unbiased reviews to sourcing the best gear at the best prices, Marks-Man SA is your ultimate partner. Let us help you make your next move with confidence.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/27686150132" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Get Free Assistance
+        </a>
+        <a href="#services" class="btn btn-ghost">View Services</a>
+      </div>
+      <div class="pillars">
+        <div><span class="k">Knowledge</span></div>
+        <div><span class="k">Precision</span></div>
+        <div><span class="k">Responsibility</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section class="sec-pad" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="justify-content:center;">Our Services</span>
+        <h2>Complete firearm assistance</h2>
+        <p>From acquisition to training — professional support at every step of your firearm journey.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="num">1</div>
+          <div>
+            <h3>Firearm Motivations — Section 13, 15, 16</h3>
+            <p>Professional and compelling motivations for Section 13, 15, and 16 applications.</p>
+            <span class="price-tag paid">R280</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="num">2</div>
+          <div>
+            <h3>SAPS Full Applications Including Motivation</h3>
+            <p>We handle the complete SAPS application process and include the motivation.</p>
+            <span class="price-tag paid">R550</span>
+            <div class="service-note">Locker-to-locker courier included</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="num">3</div>
+          <div>
+            <h3>SAPS Competency Applications</h3>
+            <p>Competency applications made simple and hassle-free.</p>
+            <span class="price-tag paid">R300</span>
+            <div class="service-note">Locker-to-locker courier included</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="num">4</div>
+          <div>
+            <h3>Free Community Services</h3>
+            <p>Helping the firearm community with knowledge, guidance and support — absolutely free. Best price sourcing, in-depth reviews and end-to-end support.</p>
+            <span class="price-tag free">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 13/15/16 -->
+  <section class="sec-pad" id="sections" style="background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="justify-content:center;">Professional Firearm Motivations</span>
+        <h2>Which section applies to you?</h2>
+        <p>SAPS-compliant motivations tailored to your reason for owning a firearm.</p>
+      </div>
+
+      <div class="sections-grid">
+        <div class="section-card">
+          <span class="tag">Section 13</span>
+          <h3>Self-Defense</h3>
+          <p>Specialized motivation support for personal and property protection, prioritizing legal compliance and personal safety.</p>
+        </div>
+        <div class="section-card">
+          <span class="tag">Section 15</span>
+          <h3>Occasional Hunter or Sports Shooter</h3>
+          <p>Tailored motivation for part-time hunters and range shooters, making your legal requirements straightforward.</p>
+        </div>
+        <div class="section-card">
+          <span class="tag">Section 16</span>
+          <h3>Dedicated Hunter or Sports Shooter</h3>
+          <p>Comprehensive motivation for competitive shooters and multi-season hunters, meeting all rigorous dedication standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED GEAR -->
+  <section class="sec-pad gear-strip" id="gear">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="justify-content:center;">Best Price Sourcing</span>
+        <h2>Featured gear</h2>
+        <p>A sample of what we can source — precision, power and performance at the right price.</p>
+      </div>
+
+      <div class="gear-grid">
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="loc">📍 Available in Johannesburg</div>
+            <h3>Baliki .308 Win</h3>
+            <p class="spec">22 inch barrel · Wood finish</p>
+            <div class="gear-feats">
+              <span>Precision Engineered</span>
+              <span>Power Unmatched</span>
+              <span>Performance Unrivaled</span>
+            </div>
+          </div>
+          <div class="gear-bottom">
+            <div class="price">R12,995<span>Cash / EFT</span></div>
+            <a href="https://wa.me/27686150132" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:10px 18px; font-size:13px;">Enquire</a>
+          </div>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="loc">📍 Available in Rustenburg</div>
+            <h3>Xtreme Arms Tactical</h3>
+            <p class="spec">7+1 Round 12G Shotgun</p>
+            <div class="gear-feats">
+              <span>Picatinny Handguard</span>
+              <span>Full Stock</span>
+              <span>Sling Mounts</span>
+              <span>Iron Sight</span>
+            </div>
+          </div>
+          <div class="gear-bottom">
+            <div class="price">R3,800<span>Cash / EFT</span></div>
+            <a href="https://wa.me/27686150132" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:10px 18px; font-size:13px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands-strip" id="brands">
+    <div class="wrap">
+      <span class="eyebrow">Trusted Suppliers</span>
+      <h2>Quality brands we source</h2>
+      <div class="brand-row">
+        <span class="brand-chip">Glock</span>
+        <span class="brand-chip">Sig Sauer</span>
+        <span class="brand-chip">Smith &amp; Wesson</span>
+        <span class="brand-chip">Canik</span>
+        <span class="brand-chip">CZ</span>
+        <span class="brand-chip">Springfield Armory</span>
+        <span class="brand-chip">Beretta</span>
+        <span class="brand-chip">Taurus</span>
+        <span class="brand-chip">Sarsilmaz</span>
+        <span class="brand-chip">Walther</span>
+        <span class="brand-chip">Trijicon</span>
+        <span class="brand-chip">Holosun</span>
+        <span class="brand-chip">Vortex Optics</span>
+        <span class="brand-chip">Leupold</span>
+        <span class="brand-chip">Nightforce</span>
+        <span class="brand-chip">Steiner</span>
+        <span class="brand-chip">Hawke</span>
+        <span class="brand-chip">Bushnell</span>
+        <span class="brand-chip">SilencerCo</span>
+        <span class="brand-chip">Dead Air</span>
+        <span class="brand-chip">Rugged Suppressors</span>
+        <span class="brand-chip">Silencer Central</span>
+        <span class="brand-chip">ASE Utra</span>
+        <span class="brand-chip">Daniel Defense</span>
+        <span class="brand-chip">Magpul</span>
+        <span class="brand-chip">Vertx</span>
+        <span class="brand-chip">5.11 Tactical</span>
+        <span class="brand-chip">Condor</span>
+        <span class="brand-chip">Streamlight</span>
+        <span class="brand-chip">Blackhawk</span>
+      </div>
+      <div class="tagline">Quality Brands. Trusted Performance. <b>Built for South Africa 🇿🇦</b></div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="sec-pad values">
+    <div class="wrap values-grid">
+      <div>
+        <div class="vnum">01</div>
+        <h3>Knowledge</h3>
+        <p>Deep expertise in South African firearm legislation, licensing and gear so you never navigate it alone.</p>
+      </div>
+      <div>
+        <div class="vnum">02</div>
+        <h3>Precision</h3>
+        <p>Every motivation, application and recommendation crafted to meet the exact standard required.</p>
+      </div>
+      <div>
+        <div class="vnum">03</div>
+        <h3>Responsibility</h3>
+        <p>Legal compliance and safety come first — always, in everything we help you with.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec-pad contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <span class="eyebrow" style="justify-content:center;">Get In Touch</span>
+        <h2 style="margin-top:14px;">Reach out today for free professional assistance</h2>
+        <p>Let us help you make your next move with confidence.</p>
+
+        <div class="contact-lines">
+          <div class="cline">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></span>
+            <a href="https://wa.me/27686150132" target="_blank" rel="noopener">WhatsApp: +27 68 615 0132</a>
+          </div>
+          <div class="cline">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <a href="mailto:connecta.buzz@gmail.com">connecta.buzz@gmail.com</a>
+          </div>
+          <div class="cline">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
+            <span>South Africa</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/27686150132" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Message Us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>© 2026 Marks-Man SA Firearms Solutions. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#gear">Featured Gear</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>Knowledge · Precision · Responsibility</p>
+  </div>
+</footer>
+
+</body>
+</html>
